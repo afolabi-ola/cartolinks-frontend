@@ -1,4 +1,4 @@
-export const getRandomColor = () => {
+export const getRandomColor = (): string => {
   const letters = '0123456789ABCDEF';
   return (
     '#' +

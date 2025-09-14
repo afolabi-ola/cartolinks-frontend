@@ -1,18 +1,11 @@
 import Carousel from '@/components/Carousel';
-import KreaClone from '@/components/KreaAi';
+import KreaTools from '@/components/KreaTools';
 
 export default function Home() {
   return (
-    <section>
+    <section className='space-y-16'>
       <Carousel />
-      <KreaClone />
-      {/* <section className='h-screen'>
-        <h1>Hello</h1>
-      </section>
-      <section className='h-screen'>
-        <h1>Gold</h1>
-      </section>
-      <h1>Hello</h1> */}
+      <KreaTools />
     </section>
   );
 }

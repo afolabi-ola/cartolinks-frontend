@@ -1,7 +1,8 @@
 'use client';
-import { slides } from '@/constants/heroCarousel';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { RxCaretLeft, RxCaretRight } from 'react-icons/rx';
+import { slides } from '@/constants/heroCarousel';
 
 export default function Carousel() {
   const [idx, setIdx] = useState(0);
@@ -22,12 +23,12 @@ export default function Carousel() {
       <div className='overflow-hidden'>
         <div
           ref={viewportRef}
-          className='flex gap-6 overflow-x-auto snap-x snap-mandatory py-4 no-scrollbar'
+          className='flex gap-6 overflow-x-hidden snap-x snap-mandatory py-4'
         >
           {slides.map((s, i) => (
             <article
               key={i}
-              className='snap-center flex-shrink-0 w-4/5 rounded-2xl bg-white shadow-md relative overflow-hidden'
+              className='snap-center flex-shrink-0 w-full md:w-4/5 rounded-2xl bg-white shadow-md relative overflow-hidden'
             >
               {/* slide content */}
               {s.type === 'collage' ? (
@@ -47,19 +48,19 @@ export default function Carousel() {
                     ))}
                   </div>
 
-                  <div className='absolute inset-0 flex flex-col justify-between text-white p-6 rounded-lg'>
+                  <div className='absolute inset-0 flex flex-col justify-between text-white p-3 md:p-6 rounded-lg'>
                     <span className='text-xs uppercase'>{s.modelType}</span>
-                    <h3 className='text-7xl w-full flex justify-center font-bold'>
+                    <h3 className='text-2xl md:text-7xl w-full flex justify-center font-bold'>
                       {s.title}
                     </h3>
-                    <div className='mt-4 flex justify-between items-start'>
+                    <div className='mt-4 flex flex-col md:flex-row gap-4 justify-between items-start'>
                       <div>
-                        <h1 className='text-2xl font-black'>{s.subtitle}</h1>
-                        <p className='mt-2 text-sm opacity-90 max-w-md'>
+                        <h1 className='md:text-2xl font-black'>{s.subtitle}</h1>
+                        <p className='mt-2 text-xs md:text-sm opacity-90 max-w-md'>
                           {s.caption}
                         </p>
                       </div>
-                      <button className='px-3 py-2 bg-white text-black rounded-lg font-medium cursor-pointer'>
+                      <button className='px-3 py-2 bg-background text-text rounded-lg font-medium cursor-pointer text-xs md:text-sm shadow-md'>
                         {s.cta}
                       </button>
                     </div>
@@ -70,15 +71,15 @@ export default function Carousel() {
                   className='h-64 md:h-[380px] bg-cover bg-center'
                   style={{ backgroundImage: `url(${s.image})` }}
                 >
-                  <div className='flex flex-col justify-between w-full h-full text-white p-6 rounded-lg'>
+                  <div className='flex flex-col justify-between w-full h-full text-white p-3 md:p-6 rounded-lg'>
                     <span className='text-xs uppercase'>{s.modelType}</span>
-                    <h3 className='text-7xl w-full flex justify-center font-bold'>
+                    <h3 className='text-2xl md:text-7xl w-full flex justify-center font-bold'>
                       {s.title}
                     </h3>
-                    <div className='mt-4 flex justify-between items-start'>
+                    <div className='mt-4 flex flex-col md:flex-row gap-4 justify-between items-start'>
                       <div>
-                        <h1 className='text-2xl font-black'>{s.subtitle}</h1>
-                        <p className='mt-2 text-sm opacity-90 max-w-md'>
+                        <h1 className='md:text-2xl font-black'>{s.subtitle}</h1>
+                        <p className='mt-2 text-xs md:text-sm opacity-90 max-w-md'>
                           {s.caption}
                         </p>
                       </div>
@@ -98,7 +99,7 @@ export default function Carousel() {
 
       <div className='flex items-center justify-between'>
         {/* dots */}
-        <div className='flex  flex-1 justify-center gap-2'>
+        <div className='flex md:flex-1 md:justify-center gap-2'>
           {slides.map((_, i) => (
             <button
               aria-label='Slide'
